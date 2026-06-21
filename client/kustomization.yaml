@@ -13,7 +13,7 @@ resources:
 images:
   - name: chocoletter-client-image
     newName: harbor.onprem.local/son/chocoletter-client
-    newTag: "0.2"
+    newTag: "0.3"
   - name: chocoletter-client-after-image
     newName: harbor.onprem.local/son/chocoletter-client-after
-    newTag: "0.2"
+    newTag: "0.3"
