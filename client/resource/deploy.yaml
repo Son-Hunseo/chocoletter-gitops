@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chocoletter-client-deploy
+  namespace: chocoletter
+  labels:
+    app: chocoletter-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chocoletter-client
+  template:
+    metadata:
+      labels:
+        app: chocoletter-client
+    spec:
+      imagePullSecrets:
+        - name: harbor-registry-key
+      containers:
+        - name: chocoletter-client
+          image: chocoletter-client-image
+          ports:
+            - containerPort: 80

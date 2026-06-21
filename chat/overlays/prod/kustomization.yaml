@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - ../../base
+  - harbor-registry-external-secret.yaml
+  - http-route.yaml
+  - external-secret.yaml
+
+images:
+  - name: chocoletter-chat-image
+    newName: harbor.onprem.local/son/chocoletter-chat
+    newTag: "0.2"
+
+patches:
+  - target:
+      kind: Deployment
+      name: refac-chocoletter-chat
+    patch: |-
+      - op: add
+        path: /spec/template/spec/imagePullSecrets
+        value: [{name: harbor-registry-key}]
+      - op: add
+        path: /spec/template/spec/containers/0/envFrom
+        value: [{secretRef: {name: chocoletter-chat-secret}}]

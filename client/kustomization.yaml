@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - secret/harbor-registry-external-secret.yaml
+  - resource/deploy.yaml
+  - resource/deploy-after.yaml
+  - resource/service.yaml
+  - resource/service-after.yaml
+  - resource/http-route.yaml
+  - resource/http-route-after.yaml
+
+images:
+  - name: chocoletter-client-image
+    newName: harbor.onprem.local/son/chocoletter-client
+    newTag: "0.2"
+  - name: chocoletter-client-after-image
+    newName: harbor.onprem.local/son/chocoletter-client-after
+    newTag: "0.2"
