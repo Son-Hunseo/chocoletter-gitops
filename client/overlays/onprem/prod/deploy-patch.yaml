@@ -10,6 +10,10 @@
 - op: replace
   path: /spec/template/metadata/labels/app
   value: chocoletter-client
+- op: add
+  path: /spec/template/spec/imagePullSecrets
+  value:
+    - name: harbor-registry-key
 - op: replace
   path: /spec/template/spec/containers/0/name
   value: chocoletter-client

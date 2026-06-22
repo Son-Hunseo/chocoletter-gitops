@@ -15,8 +15,6 @@ spec:
       labels:
         app: chocoletter-client-base
     spec:
-      imagePullSecrets:
-        - name: harbor-registry-key
       containers:
         - name: chocoletter-client-base
           image: chocoletter-client-image

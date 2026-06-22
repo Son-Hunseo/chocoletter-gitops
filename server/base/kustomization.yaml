@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  - harbor-registry-external-secret.yaml
   - service.yaml
   - deploy.yaml
   - http-route.yaml

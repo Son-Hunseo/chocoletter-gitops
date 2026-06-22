@@ -13,8 +13,6 @@ spec:
       labels:
         app: chocoletter-server-base
     spec:
-      imagePullSecrets:
-        - name: harbor-registry-key
       containers:
         - name: chocoletter-server-base
           image: chocoletter-server-image

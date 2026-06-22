@@ -2,23 +2,24 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../base
+  - ../../../base
+  - ../base
 
 images:
-  - name: chocoletter-chat-image
-    newName: harbor.onprem.local/son/chocoletter-chat
+  - name: chocoletter-client-image
+    newName: harbor.onprem.local/son/chocoletter-client
     newTag: "0.3"
 
 patches:
   - target:
       kind: Deployment
-      name: chocoletter-chat-base-deploy
+      name: chocoletter-client-base-deploy
     path: deploy-patch.yaml
   - target:
       kind: Service
-      name: chocoletter-chat-base-service
+      name: chocoletter-client-base-service
     path: service-patch.yaml
   - target:
       kind: HTTPRoute
-      name: chocoletter-chat-base-route
+      name: chocoletter-client-base-route
     path: http-route-patch.yaml
