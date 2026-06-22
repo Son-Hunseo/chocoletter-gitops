@@ -1,7 +1,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: chocoletter-route
+  name: chocoletter-chat-base-route
   namespace: chocoletter
 spec:
   parentRefs:
@@ -12,12 +12,12 @@ spec:
       namespace: nginx-gateway
       sectionName: https-wildcard
   hostnames:
-    - chocoletter.sonhs.com
+    - chocoletter-chat-base.local
   rules:
     - matches:
         - path:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: chocoletter-client-service
+        - name: chocoletter-chat-base-service
           port: 80

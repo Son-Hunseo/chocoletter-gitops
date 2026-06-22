@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: chocoletter-client-after-deploy
+  name: chocoletter-client-base-deploy
   namespace: chocoletter
   labels:
-    app: chocoletter-client-after
+    app: chocoletter-client-base
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: chocoletter-client-after
+      app: chocoletter-client-base
   template:
     metadata:
       labels:
-        app: chocoletter-client-after
+        app: chocoletter-client-base
     spec:
       imagePullSecrets:
         - name: harbor-registry-key
       containers:
-        - name: chocoletter-client-after
-          image: chocoletter-client-after-image
+        - name: chocoletter-client-base
+          image: chocoletter-client-image
           ports:
             - containerPort: 80

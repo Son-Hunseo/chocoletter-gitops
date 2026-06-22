@@ -1,0 +1,17 @@
+- op: replace
+  path: /metadata/name
+  value: refac-chocoletter-server-after
+- op: replace
+  path: /spec/selector/matchLabels/app
+  value: chocoletter-server-after
+- op: replace
+  path: /spec/template/metadata/labels/app
+  value: chocoletter-server-after
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: chocoletter-server-after
+- op: add
+  path: /spec/template/spec/containers/0/envFrom
+  value:
+    - secretRef:
+        name: chocoletter-server-after-secret

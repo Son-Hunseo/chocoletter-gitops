@@ -1,0 +1,9 @@
+- op: replace
+  path: /metadata/name
+  value: chocoletter-route
+- op: replace
+  path: /spec/hostnames/0
+  value: chocoletter.sonhs.com
+- op: replace
+  path: /spec/rules/0/backendRefs/0/name
+  value: chocoletter-client-service

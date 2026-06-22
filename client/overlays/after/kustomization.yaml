@@ -3,23 +3,22 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - external-secret.yaml
 
 images:
-  - name: chocoletter-server-image
-    newName: harbor.onprem.local/son/chocoletter-server
-    newTag: "0.5"
+  - name: chocoletter-client-image
+    newName: harbor.onprem.local/son/chocoletter-client-after
+    newTag: "0.3"
 
 patches:
   - target:
       kind: Deployment
-      name: chocoletter-server-base-deploy
+      name: chocoletter-client-base-deploy
     path: deploy-patch.yaml
   - target:
       kind: Service
-      name: chocoletter-server-base-service
+      name: chocoletter-client-base-service
     path: service-patch.yaml
   - target:
       kind: HTTPRoute
-      name: chocoletter-server-base-route
+      name: chocoletter-client-base-route
     path: http-route-patch.yaml
