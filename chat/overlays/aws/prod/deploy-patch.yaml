@@ -1,0 +1,12 @@
+- op: replace
+  path: /metadata/name
+  value: refac-chocoletter-chat
+- op: replace
+  path: /spec/selector/matchLabels/app
+  value: chocoletter-chat
+- op: replace
+  path: /spec/template/metadata/labels/app
+  value: chocoletter-chat
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: chocoletter-chat

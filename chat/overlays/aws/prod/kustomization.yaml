@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base
+  - external-secret.yaml
+
+images:
+  - name: chocoletter-chat-image
+    newName: 211125633965.dkr.ecr.ap-northeast-2.amazonaws.com/chocoletter-chat
+    newTag: "0.1"
+
+patches:
+  - target:
+      kind: Deployment
+      name: chocoletter-chat-base-deploy
+    path: deploy-patch.yaml
+  - target:
+      kind: Service
+      name: chocoletter-chat-base-service
+    path: service-patch.yaml
+  - target:
+      kind: HTTPRoute
+      name: chocoletter-chat-base-route
+    path: http-route-patch.yaml

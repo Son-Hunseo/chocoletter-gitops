@@ -1,0 +1,15 @@
+- op: replace
+  path: /metadata/name
+  value: chocoletter-chat-route
+- op: replace
+  path: /spec/hostnames/0
+  value: chocoletter-chat.sonhs.com
+- op: replace
+  path: /spec/rules/0/backendRefs/0/name
+  value: chocoletter-chat-service
+- op: replace
+  path: /spec/parentRefs/0/namespace
+  value: platform-gateway
+- op: replace
+  path: /spec/parentRefs/1/namespace
+  value: platform-gateway
