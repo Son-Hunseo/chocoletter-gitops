@@ -9,7 +9,7 @@ resources:
 images:
   - name: chocoletter-server-image
     newName: harbor.onprem.arpa/son/chocoletter-server
-    newTag: "0.6"
+    newTag: "0.1"
 
 patches:
   - target:
